@@ -1,0 +1,75 @@
+log:
+  proj_dir: "runs"
+  data_root: "data"
+  project_name: "runs/prefixcad5_42_adapt32"
+
+data:
+  ratio: 100
+  cadvec_root: "dataset/data/cad_vec"
+  prefix_root: "dataset/data/prefix/clip"
+  gpt_token_root: "dataset/data/gpt_token"
+    
+cad_params:
+  seq_len: 60
+  num_commands: 6
+  num_params: 16
+  param_range: 256
+  args_dim: 256
+  max_n_ext: 10
+  max_n_loops: 6
+  max_n_curves: 15
+  max_total_len: 60
+
+gpus:
+  gpu_ids: "0,1,2" 
+
+training:
+  seed: 42
+  epochs: 60
+  lr: 0.001
+  warmup_step: 2000
+  save_frequency: 500
+  val_frequency: 10
+  vis_frequency: 2000
+  lr_gamma: 0.9999
+  use_text: True
+
+optimizer:
+  name: AdamW
+  lr: 0.001
+  beta1: 0.9
+  beta2: 0.999
+
+scheduler:
+  t_max: 10
+  min_lr: 0.0001
+
+model:
+  model_name: "gpt2"
+  n_layers: 4
+  n_layers_decode: 4
+  n_heads: 8
+  mapping_num_layers: 2
+  dim_feedforward: 512
+  d_model: 768
+  dropout: 0.1
+  dim_z: 768
+  use_group_emb: true
+  max_length: 512
+  prefix_length: 5
+  img_embed_dim: 512
+  num_workers: 36
+  batch_size: 512
+  accumulation_steps: 4
+  finetune: True 
+  adapt_embed: 32
+  prefix_mode: "clip"
+
+loss_weights:
+  cmd_weight: 1.0
+  args_weight: 1.0
+
+checkpoint:
+  save_dir: "checkpoints/guidecad"
+  best_model: "best_guidecad"
+  latest_model: "latest_guidecad"
