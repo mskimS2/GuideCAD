@@ -7,7 +7,7 @@ conda env create --file environment.yaml
 ```
 
 ## Dataset Preparation and Preprocessing
-Please refer to the DeepCAD repository for the primary dataset. After downloading, extract the contents into the `dataset/data` directory. Additionally, the dataset we constructed for GuideCAD can be downloaded from this [link](https://www.dropbox.com/home/GuideCAD%20Dataset).
+Please refer to the DeepCAD repository for the primary dataset. After downloading, extract the contents into the `dataset/data` directory. Additionally, the dataset we constructed for GuideCAD can be downloaded from this [link](https://www.dropbox.com/scl/fo/fv2gay13ms2ysy4bdgfkh/AD1RIiAIDt-Ks2-akLGn9r8?rlkey=c828cd2t09whoj88wa7poj3w9&st=g987jrfn&dl=0).
 
 ### Preprocess CAD Images and Embeddings
 If you wish to generate 3D CAD images and preprocess them into image embeddings using a pretrained image encoder for improved training efficiency, execute the following commands:
